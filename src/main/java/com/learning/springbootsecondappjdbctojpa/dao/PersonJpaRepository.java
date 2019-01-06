@@ -26,8 +26,10 @@ public class PersonJpaRepository {
     }
 
     public Person insert(Person person){
-        return entityManager.merge(person);
+        entityManager.persist(person);
+        return person;
     }
+
 
     public Person delete(long id){
         Person person = findById(id);

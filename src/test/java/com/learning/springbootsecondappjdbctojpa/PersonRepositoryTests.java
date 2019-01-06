@@ -12,6 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)    //Launch Spring ApplicationContext
@@ -34,5 +36,27 @@ public class PersonRepositoryTests {
     public void deleteById_basic(){
         personJpaRepository.delete(10033);
         assertNull(personJpaRepository.findById(10033));
+    }
+
+    @Test
+    @DirtiesContext
+    public void update_basic(){
+
+        Person person = personJpaRepository.findById(10033);
+        assertEquals("xxx", person.getName());
+
+        person.setName("yyy");
+
+        personJpaRepository.update(person);
+
+        assertEquals("yyy", personJpaRepository.findById(10033).getName());
+    }
+
+    @Test
+    @DirtiesContext
+    public void insert_basic(){
+        personJpaRepository.insert(new Person("ttt", "aussi", new Date()));
+        //write a method in personJpaRepository to get a person by name;
+        //then check assetNotNull(personJpaRepository.findByName('ttt'))
     }
 }
