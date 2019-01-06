@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/person")
 public class PersonController {
@@ -17,6 +19,12 @@ public class PersonController {
 
     @Autowired
     private PersonJpaRepository personJpaRepository;
+
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<Person>> findAll(){
+        List<Person> persons =  personJpaRepository.findAll();
+        return new ResponseEntity<>(persons, HttpStatus.OK);
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public ResponseEntity<Person> findPersonById(@PathVariable long id){
@@ -65,9 +73,4 @@ public class PersonController {
         return new ResponseEntity<>(person, HttpStatus.OK);
     }
 
-
-    @RequestMapping(method = RequestMethod.GET)
-    public String dummy(){
-        return "aaa";
-    }
 }

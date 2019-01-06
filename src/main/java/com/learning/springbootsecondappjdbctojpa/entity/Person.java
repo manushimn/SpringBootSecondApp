@@ -1,13 +1,11 @@
 package com.learning.springbootsecondappjdbctojpa.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 
 @Entity
+@NamedQuery(name="Person.findAll", query="SELECT p FROM Person p")
 public class Person {
 
     @Id
