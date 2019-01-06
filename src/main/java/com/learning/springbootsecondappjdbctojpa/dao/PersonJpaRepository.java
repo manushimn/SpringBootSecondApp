@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-@Transactional //this will ensure that all public methods within this class will act as a single transaction. if anything fails, everything within the method will be rolled back
+@Transactional //this will ensure that all public methods within this class will act as a single atomic transaction. if anything fails, everything within the method will be rolled back
 public class PersonJpaRepository {
 
     //connect to the database

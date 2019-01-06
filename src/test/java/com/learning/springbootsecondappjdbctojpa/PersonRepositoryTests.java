@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import static org.junit.Assert.*;
@@ -55,7 +56,7 @@ public class PersonRepositoryTests {
     @Test
     @DirtiesContext
     public void insert_basic(){
-        personJpaRepository.insert(new Person("ttt", "aussi", new Date()));
+        personJpaRepository.insert(new Person("ttt", "aussi", LocalDateTime.now()));
         //write a method in personJpaRepository to get a person by name;
         //then check assetNotNull(personJpaRepository.findByName('ttt'))
     }

@@ -2,6 +2,7 @@ package com.learning.springbootsecondappjdbctojpa.controller;
 
 import com.learning.springbootsecondappjdbctojpa.dao.PersonJpaRepository;
 import com.learning.springbootsecondappjdbctojpa.entity.Person;
+import com.learning.springbootsecondappjdbctojpa.utils.CustomErrorType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

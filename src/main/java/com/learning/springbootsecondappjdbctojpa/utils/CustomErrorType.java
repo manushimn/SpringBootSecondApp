@@ -1,4 +1,4 @@
-package com.learning.springbootsecondappjdbctojpa.controller;
+package com.learning.springbootsecondappjdbctojpa.utils;
 
 
 public class CustomErrorType{
